@@ -12,16 +12,18 @@
 		94A7D2A2191C7645007B7F91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D2A1191C7645007B7F91 /* UIKit.framework */; };
 		94A7D2A8191C7645007B7F91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A7D2A6191C7645007B7F91 /* InfoPlist.strings */; };
 		94A7D2AA191C7646007B7F91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2A9191C7646007B7F91 /* main.m */; };
-		94A7D2AE191C7646007B7F91 /* CardGameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2AD191C7646007B7F91 /* CardGameAppDelegate.m */; };
-		94A7D2B1191C7646007B7F91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A7D2AF191C7646007B7F91 /* Main.storyboard */; };
-		94A7D2B4191C7646007B7F91 /* CardGameFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2B3191C7646007B7F91 /* CardGameFirstViewController.m */; };
-		94A7D2B7191C7646007B7F91 /* CardGameSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2B6191C7646007B7F91 /* CardGameSecondViewController.m */; };
 		94A7D2B9191C7646007B7F91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A7D2B8191C7646007B7F91 /* Images.xcassets */; };
 		94A7D2C0191C7646007B7F91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D2BF191C7646007B7F91 /* XCTest.framework */; };
 		94A7D2C1191C7646007B7F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D29D191C7645007B7F91 /* Foundation.framework */; };
 		94A7D2C2191C7646007B7F91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D2A1191C7645007B7F91 /* UIKit.framework */; };
 		94A7D2CA191C7647007B7F91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A7D2C8191C7647007B7F91 /* InfoPlist.strings */; };
 		94A7D2CC191C7647007B7F91 /* flickerTopPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2CB191C7647007B7F91 /* flickerTopPlacesTests.m */; };
+		94A7D2DB191C772E007B7F91 /* FlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2D6191C772E007B7F91 /* FlickrPhotosTVC.m */; };
+		94A7D2DC191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2D8191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.m */; };
+		94A7D2DD191C772E007B7F91 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2DA191C772E007B7F91 /* ImageViewController.m */; };
+		94A7D2E2191C7806007B7F91 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2E1191C7806007B7F91 /* FlickrFetcher.m */; };
+		94A7D2E3191C7C76007B7F91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A7D2AF191C7646007B7F91 /* Main.storyboard */; };
+		94A7D2E6191C7D35007B7F91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A7D2E5191C7D35007B7F91 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,19 +45,24 @@
 		94A7D2A7191C7645007B7F91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A7D2A9191C7646007B7F91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94A7D2AB191C7646007B7F91 /* flickerTopPlaces-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "flickerTopPlaces-Prefix.pch"; sourceTree = "<group>"; };
-		94A7D2AC191C7646007B7F91 /* CardGameAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameAppDelegate.h; sourceTree = "<group>"; };
-		94A7D2AD191C7646007B7F91 /* CardGameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameAppDelegate.m; sourceTree = "<group>"; };
 		94A7D2B0191C7646007B7F91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94A7D2B2191C7646007B7F91 /* CardGameFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameFirstViewController.h; sourceTree = "<group>"; };
-		94A7D2B3191C7646007B7F91 /* CardGameFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameFirstViewController.m; sourceTree = "<group>"; };
-		94A7D2B5191C7646007B7F91 /* CardGameSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameSecondViewController.h; sourceTree = "<group>"; };
-		94A7D2B6191C7646007B7F91 /* CardGameSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameSecondViewController.m; sourceTree = "<group>"; };
 		94A7D2B8191C7646007B7F91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94A7D2BE191C7646007B7F91 /* flickerTopPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flickerTopPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A7D2BF191C7646007B7F91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		94A7D2C7191C7647007B7F91 /* flickerTopPlacesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "flickerTopPlacesTests-Info.plist"; sourceTree = "<group>"; };
 		94A7D2C9191C7647007B7F91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A7D2CB191C7647007B7F91 /* flickerTopPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flickerTopPlacesTests.m; sourceTree = "<group>"; };
+		94A7D2D5191C772E007B7F91 /* FlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrPhotosTVC.h; path = "../../../Desktop/Shutterbug Universal/Shutterbug/FlickrPhotosTVC.h"; sourceTree = "<group>"; };
+		94A7D2D6191C772E007B7F91 /* FlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrPhotosTVC.m; path = "../../../Desktop/Shutterbug Universal/Shutterbug/FlickrPhotosTVC.m"; sourceTree = "<group>"; };
+		94A7D2D7191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopPlacesFlickrPhotosTVC.h; path = "../../../Desktop/Shutterbug Universal/Shutterbug/TopPlacesFlickrPhotosTVC.h"; sourceTree = "<group>"; };
+		94A7D2D8191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopPlacesFlickrPhotosTVC.m; path = "../../../Desktop/Shutterbug Universal/Shutterbug/TopPlacesFlickrPhotosTVC.m"; sourceTree = "<group>"; };
+		94A7D2D9191C772E007B7F91 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = "../../../Desktop/Shutterbug Universal/Shutterbug/ImageViewController.h"; sourceTree = "<group>"; };
+		94A7D2DA191C772E007B7F91 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = "../../../Desktop/Shutterbug Universal/Shutterbug/ImageViewController.m"; sourceTree = "<group>"; };
+		94A7D2DF191C7806007B7F91 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		94A7D2E0191C7806007B7F91 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		94A7D2E1191C7806007B7F91 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		94A7D2E4191C7D35007B7F91 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../../Desktop/Shutterbug Universal/Shutterbug/AppDelegate.h"; sourceTree = "<group>"; };
+		94A7D2E5191C7D35007B7F91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../../Desktop/Shutterbug Universal/Shutterbug/AppDelegate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +122,16 @@
 		94A7D2A3191C7645007B7F91 /* flickerTopPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				94A7D2AC191C7646007B7F91 /* CardGameAppDelegate.h */,
-				94A7D2AD191C7646007B7F91 /* CardGameAppDelegate.m */,
+				94A7D2E4191C7D35007B7F91 /* AppDelegate.h */,
+				94A7D2E5191C7D35007B7F91 /* AppDelegate.m */,
+				94A7D2D5191C772E007B7F91 /* FlickrPhotosTVC.h */,
+				94A7D2D6191C772E007B7F91 /* FlickrPhotosTVC.m */,
+				94A7D2D7191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.h */,
+				94A7D2D8191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.m */,
+				94A7D2D9191C772E007B7F91 /* ImageViewController.h */,
+				94A7D2DA191C772E007B7F91 /* ImageViewController.m */,
 				94A7D2AF191C7646007B7F91 /* Main.storyboard */,
-				94A7D2B2191C7646007B7F91 /* CardGameFirstViewController.h */,
-				94A7D2B3191C7646007B7F91 /* CardGameFirstViewController.m */,
-				94A7D2B5191C7646007B7F91 /* CardGameSecondViewController.h */,
-				94A7D2B6191C7646007B7F91 /* CardGameSecondViewController.m */,
+				94A7D2DE191C7806007B7F91 /* Flickr Fetcher */,
 				94A7D2B8191C7646007B7F91 /* Images.xcassets */,
 				94A7D2A4191C7645007B7F91 /* Supporting Files */,
 			);
@@ -155,6 +165,17 @@
 				94A7D2C8191C7647007B7F91 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94A7D2DE191C7806007B7F91 /* Flickr Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				94A7D2DF191C7806007B7F91 /* FlickrAPIKey.h */,
+				94A7D2E0191C7806007B7F91 /* FlickrFetcher.h */,
+				94A7D2E1191C7806007B7F91 /* FlickrFetcher.m */,
+			);
+			name = "Flickr Fetcher";
+			path = "../../../Desktop/Flickr Fetcher";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A7D2E3191C7C76007B7F91 /* Main.storyboard in Resources */,
 				94A7D2B9191C7646007B7F91 /* Images.xcassets in Resources */,
 				94A7D2A8191C7645007B7F91 /* InfoPlist.strings in Resources */,
-				94A7D2B1191C7646007B7F91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94A7D2B7191C7646007B7F91 /* CardGameSecondViewController.m in Sources */,
-				94A7D2AE191C7646007B7F91 /* CardGameAppDelegate.m in Sources */,
-				94A7D2B4191C7646007B7F91 /* CardGameFirstViewController.m in Sources */,
+				94A7D2DD191C772E007B7F91 /* ImageViewController.m in Sources */,
+				94A7D2DC191C772E007B7F91 /* TopPlacesFlickrPhotosTVC.m in Sources */,
+				94A7D2E6191C7D35007B7F91 /* AppDelegate.m in Sources */,
+				94A7D2E2191C7806007B7F91 /* FlickrFetcher.m in Sources */,
+				94A7D2DB191C772E007B7F91 /* FlickrPhotosTVC.m in Sources */,
 				94A7D2AA191C7646007B7F91 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
