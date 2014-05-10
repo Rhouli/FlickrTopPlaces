@@ -11,6 +11,8 @@
 #import "ImageViewController.h"
 
 #define NS_USR_DEFAULTS_KEY @"Recently Viewed"
+#define MAX_RECENT_HISTORY 20
+
 @interface FlickrPhotosTVC ()
 
 @end
@@ -101,7 +103,7 @@
         array = [NSMutableArray arrayWithArray:[userDefaults objectForKey:NS_USR_DEFAULTS_KEY]];
     [array insertObject:photo atIndex:0];
 
-    if([array count] > 20)
+    if([array count] > MAX_RECENT_HISTORY)
         [array removeLastObject];
     [userDefaults setObject:array forKey:NS_USR_DEFAULTS_KEY];
     [userDefaults synchronize];

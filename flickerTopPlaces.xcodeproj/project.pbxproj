@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		944B538B191D9B960006EFDC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944B5389191D9B960006EFDC /* Main_iPad.storyboard */; };
+		943F5E60191DCFF0006575F3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943F5E5F191DCFF0006575F3 /* Main_iPad.storyboard */; };
 		9469F3F0191C89E200AFE0EF /* PlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469F3EF191C89E200AFE0EF /* PlacesTVC.m */; };
 		9469F3F3191C89FD00AFE0EF /* TopPlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469F3F2191C89FD00AFE0EF /* TopPlacesTVC.m */; };
 		94A7D29E191C7645007B7F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D29D191C7645007B7F91 /* Foundation.framework */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		944B538A191D9B960006EFDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Downloads/Shutterbug Universal-2/Shutterbug/Base.lproj/Main_iPad.storyboard"; sourceTree = "<group>"; };
+		943F5E5F191DCFF0006575F3 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		9469F3EE191C89E200AFE0EF /* PlacesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTVC.h; sourceTree = "<group>"; };
 		9469F3EF191C89E200AFE0EF /* PlacesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTVC.m; sourceTree = "<group>"; };
 		9469F3F1191C89FD00AFE0EF /* TopPlacesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlacesTVC.h; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 		94A7D2F9191C81DC007B7F91 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				944B5389191D9B960006EFDC /* Main_iPad.storyboard */,
 				94A7D2AF191C7646007B7F91 /* Main_iPhone.storyboard */,
+				943F5E5F191DCFF0006575F3 /* Main_iPad.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A7D2E3191C7C76007B7F91 /* Main_iPhone.storyboard in Resources */,
-				944B538B191D9B960006EFDC /* Main_iPad.storyboard in Resources */,
+				943F5E60191DCFF0006575F3 /* Main_iPad.storyboard in Resources */,
 				94A7D2B9191C7646007B7F91 /* Images.xcassets in Resources */,
 				94A7D2A8191C7645007B7F91 /* InfoPlist.strings in Resources */,
 			);
@@ -341,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		944B5389191D9B960006EFDC /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				944B538A191D9B960006EFDC /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		94A7D2A6191C7645007B7F91 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

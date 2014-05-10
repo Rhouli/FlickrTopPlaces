@@ -7,6 +7,8 @@
 //
 
 #import "ImageViewController.h"
+#define WIDTH_OF_MASTER_VIEW 320
+#define IS_PHONE UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
 
 @interface ImageViewController () <UIScrollViewDelegate, UISplitViewControllerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
@@ -91,7 +93,10 @@
         center.y = height/2;
     } else if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight){
         //Do something if left or right
-        width = sizeOfScreen.height;
+        if(!IS_PHONE)
+            width = sizeOfScreen.height - WIDTH_OF_MASTER_VIEW;
+        else
+            width = sizeOfScreen.height;
         height = sizeOfScreen.width - statusNavBarHeight;
         
         center.x = width/2;
