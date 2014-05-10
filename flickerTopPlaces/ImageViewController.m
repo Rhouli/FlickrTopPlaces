@@ -7,6 +7,8 @@
 //
 
 #import "ImageViewController.h"
+#import "GeneralHelper.h"
+#import "NSDefaultHelper.h"
 #define WIDTH_OF_MASTER_VIEW 320
 #define IS_PHONE UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
 
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic) NSUInteger lastRotation;
+TIME_VARIABLES
 @end
 
 @implementation ImageViewController
@@ -29,11 +32,14 @@
 }
 
 - (void)viewDidLoad {
+    TIME_START
     [super viewDidLoad];
     [self.scrollView addSubview:self.imageView];
 }
 
-
+- (void) viewWillDisappear:(BOOL)animated {
+    TIME_END
+}
 #pragma mark - Properties
 
 // lazy instantiation
@@ -136,6 +142,9 @@
     [self startDownloadingImage];
 }
 
+- (void)setPhoto:(NSDictionary *)photo {
+    _photo = photo;
+}
 - (void)startDownloadingImage {
     self.image = nil;
 

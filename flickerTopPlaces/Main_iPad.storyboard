@@ -16,7 +16,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1f-lB-5c6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-1860"/>
+            <point key="canvasLocation" x="-323" y="-1924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ofR-ye-ylR">
@@ -34,7 +34,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZ6-sM-Zzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083" y="-1170"/>
+            <point key="canvasLocation" x="1139" y="-2"/>
         </scene>
         <!--Top Places Flickr PhotosTVC-->
         <scene sceneID="Kc9-Pe-NBm">
@@ -136,7 +136,7 @@
                     </connections>
                 </rotationGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2035" y="-1170"/>
+            <point key="canvasLocation" x="2131" y="14"/>
         </scene>
         <!--Tab Bar Controller - Flickr Photos-->
         <scene sceneID="GbB-r8-GxQ">
@@ -151,6 +151,7 @@
                     <connections>
                         <segue destination="xqm-Me-oBT" kind="relationship" relationship="viewControllers" id="Lzn-O3-oVB"/>
                         <segue destination="Uod-77-otP" kind="relationship" relationship="viewControllers" id="vYJ-g2-nbn"/>
+                        <segue destination="xfw-18-pwy" kind="relationship" relationship="viewControllers" id="dKm-A8-ckT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSP-Rl-1mB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,8 +281,69 @@
             </objects>
             <point key="canvasLocation" x="2360" y="-2184"/>
         </scene>
+        <!--Favorite ImagesTVC - Favorite Images-->
+        <scene sceneID="gwA-Rr-B9P">
+            <objects>
+                <tableViewController id="bf2-7j-id4" customClass="FavoriteImagesTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0SU-mw-7Q4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Favorite Photo Cell" textLabel="cWm-tj-ed4" detailTextLabel="PcX-H9-u0h" style="IBUITableViewCellStyleSubtitle" id="hTQ-6b-Nhw">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTQ-6b-Nhw" id="sRz-Ak-52K">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cWm-tj-ed4">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PcX-H9-u0h">
+                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorite Images" id="71J-e0-KDv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98H-Rm-BWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2866" y="-1152"/>
+        </scene>
+        <!--Navigation Controller - Favorite Images-->
+        <scene sceneID="MBX-8l-vWD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xfw-18-pwy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite Images" image="FavoriteImagesIcon" id="ub2-DJ-dk2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JpM-hj-vga">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bf2-7j-id4" kind="relationship" relationship="rootViewController" id="9WZ-HG-gY3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhj-3n-PqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="-1152"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="FavoriteImagesIcon" width="30" height="30"/>
         <image name="PopularPlacesIcon" width="30" height="30"/>
         <image name="RecentlyViewedIcon" width="30" height="30"/>
     </resources>

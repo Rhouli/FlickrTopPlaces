@@ -10,30 +10,14 @@
 #import "FlickrFetcher.h"
 #import "ImageViewController.h"
 #import "NSDefaultHelper.h"
+#import "GeneralHelper.h"
 
 @interface FlickrPhotosTVC ()
-@property (nonatomic) NSTimeInterval startTime;
-@property (nonatomic) NSTimeInterval endTime;
-@property (nonatomic) BOOL segueOccured;
-@property (nonatomic) NSUInteger lastClickedRow;
 @end
 
 @implementation FlickrPhotosTVC
 
 #pragma mark - View Controller Lifecycle
-
-- (void)viewDidAppear:(BOOL)animated {
-    if(self.segueOccured){
-        self.endTime = [NSDate timeIntervalSinceReferenceDate];
-        NSTimeInterval elapsedTime = self.endTime - self.startTime;
-        [NSDefaultHelper saveImageFavoriteHistory:self.photos[self.lastClickedRow] forTime:elapsedTime];
-    }
-    self.segueOccured = NO;
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    self.startTime = [NSDate timeIntervalSinceReferenceDate];
-}
 
 - (void)setPhotos:(NSArray *)photos {
     _photos = photos;
@@ -57,17 +41,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Photo Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *photo = self.photos[indexPath.row];
-    if(![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]){
-        cell.textLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
-        cell.detailTextLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-    } else if(![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]){
-        cell.textLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-        cell.detailTextLabel.text = @"";
-    } else {
-        cell.textLabel.text = @"Unkown";
-        cell.detailTextLabel.text = @"";
-    }
+    NSArray* labels = [GeneralHelper GetCellLabel:self.photos[indexPath.row]];
+    
+    cell.textLabel.text = labels[INDEX_OF_TITLE];
+    cell.detailTextLabel.text = labels[INDEX_OF_DESCRIPTION];
 
     return cell;
 }
@@ -90,7 +67,10 @@
 - (void)prepareImageViewController:(ImageViewController *)ivc
                     toDisplayPhoto:(NSDictionary *)photo {
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
-    ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    ivc.photo = photo;
+
+    NSArray *cellTitle = [GeneralHelper GetCellLabel:photo];
+    ivc.title = cellTitle[INDEX_OF_TITLE];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -104,9 +84,8 @@
                 [NSDefaultHelper saveImageViewingHistory:self.photos[indexPath.row]];
                 if ([segue.destinationViewController isKindOfClass:[ImageViewController class]]) {
                     [self prepareImageViewController:segue.destinationViewController
-                                      toDisplayPhoto:self.photos[indexPath.row]];
-                    self.segueOccured = YES;
-                    self.lastClickedRow = indexPath.row;
+                                      toDisplayPhoto:self.photos[indexPath.row]
+                     ];
                 }
             }
         }

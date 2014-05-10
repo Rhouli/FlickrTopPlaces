@@ -32,22 +32,27 @@
         array = [NSMutableArray arrayWithArray:[userDefaults objectForKey:NS_USR_DEFAULTS_FAVORITE_KEY]];
     
     int position = -1;
-    BOOL alreadyChoosen = NO;
     if([array count] == 0)
         position = 0;
-    for(int i = [array count]-1; i >= 0; i--){
+    
+    BOOL alreadyChoosen = NO;
+    // if the image already exists in the list add its new time
+    for(int i = 0; i < [array count]; i++){
         NSArray *tmp = (NSArray *) array[i];
         NSNumber *num = [NSNumber numberWithFloat:[tmp[TIME_INDEX] floatValue]];
         
         if ([photo isEqualToDictionary:(NSDictionary*)tmp[PHOTOS_INDEX]]){
-            if (viewingTime < [num floatValue]){
-                alreadyChoosen = YES;
-                break;
-            } else {
-                [array removeObjectAtIndex:i];
-                position = i;
-            }
-        } else if (viewingTime > [num floatValue])
+            viewingTime += [num floatValue];
+            [array removeObjectAtIndex:i];
+        }
+    }
+    
+    // if the image viewing time is long enough add to favorites list
+    for(int i = [array count]-1; i >= 0; i--){
+        NSArray *tmp = (NSArray *) array[i];
+        NSNumber *num = [NSNumber numberWithFloat:[tmp[TIME_INDEX] floatValue]];
+        
+      if (viewingTime > [num floatValue])
             position = i;
     }
     

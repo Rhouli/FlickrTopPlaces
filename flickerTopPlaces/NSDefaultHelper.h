@@ -13,6 +13,7 @@
 #define MAX_FAVORITES 30
 #define PHOTOS_INDEX 0
 #define TIME_INDEX 1
+#define BLUE_STAR_LIMIT 1000
 
 @interface NSDefaultHelper : NSObject
 + (void) saveImageViewingHistory:(NSDictionary *)photo;

@@ -18,6 +18,13 @@
 
 @implementation FavoriteImagesTVC
 
+#pragma mark - View Controller Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self extractPhotosAndTimes];
+    [self.tableView reloadData];
+}
+
 - (void)setPhotos:(NSArray *)photos {
     _photos = photos;
     [self.tableView reloadData];
@@ -37,32 +44,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Favorite Photo Cell" forIndexPath:indexPath];
-    
+
     // Configure the cell...
     cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    NSString* text = (NSString *) [self.times[indexPath.row] substringToIndex:3];
+    
+    Float64 textValue = [self.times[indexPath.row] floatValue];
+    UIImage* iconImage;
+    if (textValue > BLUE_STAR_LIMIT){
+        iconImage = [UIImage imageNamed:@"BlueStarIcon"];
+        textValue /= BLUE_STAR_LIMIT;
+    } else
+        iconImage = [UIImage imageNamed:@"StarIcon"];
+    
+    NSString* text = [[NSString stringWithFormat:@"%f", textValue] substringToIndex:3];
+    
     if([ [NSString stringWithFormat:@"%c", [text characterAtIndex:2]] isEqualToString:@"."])
         text = [text substringToIndex:2];
-    UIImage* iconImage = [UIImage imageNamed:@"StarIcon"];
+    
     CGSize size;
     size.width = 40;
     size.height = 40;
     cell.imageView.image = [GeneralHelper imageFromText:text withImage:iconImage forSize:size];
 
-    NSDictionary *photo = self.photos[indexPath.row];
-    if(![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]){
-        cell.textLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
-        cell.detailTextLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-    } else if(![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]){
-        cell.textLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-        cell.detailTextLabel.text = @"";
-    } else {
-        cell.textLabel.text = @"Unkown";
-        cell.detailTextLabel.text = @"";
-    }
+    NSArray* labels = [GeneralHelper GetCellLabel:self.photos[indexPath.row]];
     
-    
+    cell.textLabel.text = labels[INDEX_OF_TITLE];
+    cell.detailTextLabel.text = labels[INDEX_OF_DESCRIPTION];
+
     return cell;
 }
 
@@ -83,16 +92,10 @@
 - (void)prepareImageViewController:(ImageViewController *)ivc
                     toDisplayPhoto:(NSDictionary *)photo {
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
+    ivc.photo = photo;
     
-    // set ivc title
-    if(![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]){
-        ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
-    } else if(![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]){
-        ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-    } else {
-        ivc.title = @"Unkown";
-    }
-
+    NSArray *cellTitle = [GeneralHelper GetCellLabel:photo];
+    ivc.title = cellTitle[INDEX_OF_TITLE];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -110,12 +113,6 @@
             }
         }
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self extractPhotosAndTimes];
-    [self.tableView reloadData];
-    
 }
 
 - (void)extractPhotosAndTimes {

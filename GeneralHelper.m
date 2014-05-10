@@ -7,6 +7,8 @@
 //
 
 #import "GeneralHelper.h"
+#import "FlickrFetcher.h"
+
 #define FONT_SIZE 12.0
 #define CORRECTION_FACTOR 3.0
 
@@ -37,7 +39,6 @@
     return image;
 }
 
-
 + (UIImage *)imageFromText:(NSString *)text withImage:(UIImage *)overlayImage forSize:(CGSize)size {
     // set the font type and size
     UIFont *font = [UIFont systemFontOfSize:FONT_SIZE];
@@ -66,4 +67,22 @@
     
     return image;
 }
+
++ (NSArray *)GetCellLabel:(NSDictionary *) photo {
+    NSMutableArray* newStrings = [[NSMutableArray alloc] init];
+    if(![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]){
+        [newStrings addObject:[photo valueForKeyPath:FLICKR_PHOTO_TITLE]];
+        [newStrings addObject:[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION]];
+    } else if(![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]){
+        [newStrings addObject:[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION]];
+        [newStrings addObject:@""];
+    } else {
+        [newStrings addObject:@"Unkown"];
+        [newStrings addObject:@""];
+    }
+    
+    NSLog(@"%@", newStrings);
+    return (NSArray *)newStrings;
+}
+
 @end
