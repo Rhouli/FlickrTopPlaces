@@ -1,14 +1,14 @@
 //
-//  CardGameAppDelegate.m
-//  flickerTopPlaces
+//  AppDelegate.m
+//  Shutterbug
 //
-//  Created by Ryan on 5/8/14.
-//  Copyright (c) 2014 Ryan Houlihan. All rights reserved.
+//  Created by Ryan Houlihan on 5/8/14.
+//  Copyright (c) 2014 Stanford University. All rights reserved.
 //
 
-#import "CardGameAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation CardGameAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

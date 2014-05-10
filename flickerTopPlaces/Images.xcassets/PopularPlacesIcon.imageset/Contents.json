@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "second.png"
+      "filename" : "Camera_LOW.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "second@2x.png"
+      "filename" : "Camera_RETINA.png"
     }
   ],
   "info" : {
