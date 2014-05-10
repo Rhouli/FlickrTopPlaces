@@ -96,6 +96,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="CFN-gA-egz">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GhM-Be-mr0" appends="YES" id="ryr-qd-DgN"/>
+                                    <outletCollection property="gestureRecognizers" destination="FGO-W7-ZZr" appends="YES" id="VPf-C4-tVs"/>
+                                </connections>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-EJ-y2E">
                                 <rect key="frame" x="366" y="494" width="37" height="37"/>
@@ -120,6 +125,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0f-6G-8w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GhM-Be-mr0">
+                    <connections>
+                        <action selector="tapImage:" destination="BrL-6T-H0r" id="vio-FQ-aqg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <rotationGestureRecognizer id="FGO-W7-ZZr">
+                    <connections>
+                        <action selector="rotateImage:" destination="BrL-6T-H0r" id="xnt-yV-SrO"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2035" y="-1170"/>
         </scene>

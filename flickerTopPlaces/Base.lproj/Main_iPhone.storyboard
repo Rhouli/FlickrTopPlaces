@@ -64,9 +64,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-zX-yRe">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-zX-yRe">
+                                <rect key="frame" x="-5" y="6" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0QM-XN-Ofn" appends="YES" id="78b-Si-6xb"/>
+                                    <outletCollection property="gestureRecognizers" destination="jXV-D5-7bO" appends="YES" id="hyg-ag-lAg"/>
+                                </connections>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kdR-6r-V2x">
                                 <rect key="frame" x="142" y="266" width="37" height="37"/>
@@ -75,6 +80,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="kdR-6r-V2x" secondAttribute="centerY" id="HQR-6r-lK8"/>
                             <constraint firstAttribute="centerX" secondItem="kdR-6r-V2x" secondAttribute="centerX" id="MOb-d7-BtP"/>
@@ -91,6 +97,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa8-lp-kv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="0QM-XN-Ofn">
+                    <connections>
+                        <action selector="rotateImage:" destination="7Vx-SZ-M2m" id="rA2-0a-R6U"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <tapGestureRecognizer id="jXV-D5-7bO">
+                    <connections>
+                        <action selector="tapImage:" destination="7Vx-SZ-M2m" id="SWD-p8-g4Y"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1321" y="516"/>
         </scene>
@@ -107,6 +123,7 @@
                     <connections>
                         <segue destination="su1-dU-14U" kind="relationship" relationship="viewControllers" id="3v0-od-eOs"/>
                         <segue destination="o5x-J9-SNM" kind="relationship" relationship="viewControllers" id="F2o-RX-cfT"/>
+                        <segue destination="odb-am-RlM" kind="relationship" relationship="viewControllers" id="0Oy-Oi-Da2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8z-03-One" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,8 +256,72 @@
             </objects>
             <point key="canvasLocation" x="-2884" y="820"/>
         </scene>
+        <!--Favorite ImagesTVC - Favorite Images-->
+        <scene sceneID="hKH-TJ-XRd">
+            <objects>
+                <tableViewController id="zpn-ml-LMh" customClass="FavoriteImagesTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2WL-oJ-gpO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Favorite Photo Cell" textLabel="yRU-RR-vQG" detailTextLabel="wRE-1i-Q8d" style="IBUITableViewCellStyleSubtitle" id="p27-PT-d9s">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p27-PT-d9s" id="iET-vh-29h">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yRU-RR-vQG">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wRE-1i-Q8d">
+                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="7Vx-SZ-M2m" kind="push" identifier="Display Photo" id="ccs-hu-AHZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorite Images" id="FDq-JP-y4m"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m83-cm-UNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2398" y="1544"/>
+        </scene>
+        <!--Navigation Controller - Favorite Images-->
+        <scene sceneID="vul-Se-pRg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="odb-am-RlM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite Images" image="FavoriteImagesIcon" id="LTC-Xh-SrP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ebk-Hu-m6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zpn-ml-LMh" kind="relationship" relationship="rootViewController" id="m5m-vj-g24"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIM-zf-Ps5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2884" y="1544"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="FavoriteImagesIcon" width="30" height="30"/>
         <image name="PopularPlacesIcon" width="30" height="30"/>
         <image name="RecentlyViewedIcon" width="30" height="30"/>
     </resources>
@@ -250,6 +331,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xAN-Zk-bVj"/>
+        <segue reference="ccs-hu-AHZ"/>
     </inferredMetricsTieBreakers>
 </document>

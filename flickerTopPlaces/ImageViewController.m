@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIImage *image;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic) NSUInteger lastRotation;
 @end
 
 @implementation ImageViewController
@@ -188,6 +189,31 @@
      willShowViewController:(UIViewController *)aViewController
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
     self.navigationItem.leftBarButtonItem = nil;
+}
+
+#pragma mark - Gesture Controls
+
+- (IBAction)tapImage:(id)sender {
+    self.imageView.transform = CGAffineTransformIdentity;
+    [self resizeImageToFitScreen];
+}
+
+- (IBAction)rotateImage:(id)sender; {
+    
+    if([(UIRotationGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        self.lastRotation = 0.0;
+        return;
+    }
+    
+    CGFloat rotation = 0.0 - (self.lastRotation - [(UIRotationGestureRecognizer*)sender rotation]/10);
+    
+    CGAffineTransform currentTransform = self.imageView.transform;
+    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform,rotation);
+    
+    [self.imageView setTransform:newTransform];
+    
+    self.lastRotation = [(UIRotationGestureRecognizer*)sender rotation]/10;
+    //[self showOverlayWithFrame:self.imageView.frame];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 
 @interface TopPlacesTVC ()
+@property (strong, nonatomic) NSArray* places;
 @end
 
 @implementation TopPlacesTVC
@@ -19,42 +20,45 @@
     [self fetchTopPlaces];
 }
 
-- (void)fetchTopPlaces {
-   /* self.propertyListResults = nil;
+- (void) loadTopPlaces:(void (^)(NSArray *placesList, NSError *errror))completion {
+    NSURL *url = [FlickrFetcher URLforTopPlaces];
     if (url){
-        [activityView startAnimating];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        // NSURLRequest *request = [NSURLRequest requestWithURL:url];
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
         NSURLSessionDownloadTask *task =[session
-                                         downloadTaskWithRequest:request
+                                         downloadTaskWithURL:url
                                          completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                             NSArray *places;
                                              if(!error){
-                                                 if([request.URL isEqual:url]) {
-                                                     NSData *data = [NSData dataWithContentsOfURL:location];
-                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                         self.propertyListResults = [NSJSONSerialization
-                                                                                     JSONObjectWithData:data
-                                                                                     options:0
-                                                                                     error:NULL];});
-                                                 }
+                                                 places = [[NSJSONSerialization
+                                                                     JSONObjectWithData:[NSData dataWithContentsOfURL:location]
+                                                                     options:0
+                                                                     error:NULL] valueForKeyPath:FLICKR_RESULTS_PLACES];
+                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                     completion(places,error);
+                                                 });
+                                                 
                                              }
                                          }];
         [task resume];
-    }*/
-
+    }
+}
+- (void)fetchTopPlaces {
     
     // Build a dictonary linking all countries and states/ regions in the country
-    NSURL *url = [FlickrFetcher URLforTopPlaces];
-#warning Blocks Main Thread
-    NSData *jsonResults = [NSData dataWithContentsOfURL:url];
+     NSURL *url = [FlickrFetcher URLforTopPlaces];
+     #warning Blocks Main Thread
+     NSData *jsonResults = [NSData dataWithContentsOfURL:url];
+     
+     NSDictionary *propertyListResults = [NSJSONSerialization
+     JSONObjectWithData:jsonResults
+     options:0
+     error:NULL];
+     
+     NSArray *places = [propertyListResults valueForKeyPath:FLICKR_RESULTS_PLACES];
 
-    NSDictionary *propertyListResults = [NSJSONSerialization
-                                JSONObjectWithData:jsonResults
-                                options:0
-                                error:NULL];
-    
-    NSArray *places = [propertyListResults valueForKeyPath:FLICKR_RESULTS_PLACES];
+
     NSMutableDictionary *placesDict = [[NSMutableDictionary alloc] init];
     
     NSMutableOrderedSet *countries = [[NSMutableOrderedSet alloc] init];

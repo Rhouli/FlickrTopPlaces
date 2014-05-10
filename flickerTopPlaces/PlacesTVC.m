@@ -31,7 +31,10 @@
 
 - (void)setPlacesDict:(NSDictionary *)placesDict
 {
+    if(_placesDict == placesDict) return;
+    
     _placesDict = placesDict;
+    
     [self.tableView reloadData];
 }
 

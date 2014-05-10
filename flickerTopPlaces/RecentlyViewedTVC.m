@@ -9,10 +9,9 @@
 #import "RecentlyViewedTVC.h"
 #import "ImageViewController.h"
 #import "FlickrFetcher.h"
+#import "NSDefaultHelper.h"
 
 @interface RecentlyViewedTVC ()
-
-#define NS_USR_DEFAULTS_KEY @"Recently Viewed"
 
 @end
 
@@ -35,8 +34,7 @@
     return [self.photos count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Recent Photo Cell" forIndexPath:indexPath];
     
     // Configure the cell...
@@ -57,8 +55,7 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     id detailVC = [self.splitViewController.viewControllers lastObject];
     if ([detailVC isKindOfClass:[UINavigationController class]]) {
         detailVC = [((UINavigationController *)detailVC).viewControllers firstObject];
@@ -71,15 +68,13 @@
 #pragma mark - Navigation
 
 - (void)prepareImageViewController:(ImageViewController *)ivc
-                    toDisplayPhoto:(NSDictionary *)photo
-{
+                    toDisplayPhoto:(NSDictionary *)photo {
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
     ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -97,7 +92,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.photos = [userDefaults objectForKey:NS_USR_DEFAULTS_KEY];
+    self.photos = [userDefaults objectForKey:NS_USR_DEFAULTS_RECENT_KEY];
     [self.tableView reloadData];
 }
 @end

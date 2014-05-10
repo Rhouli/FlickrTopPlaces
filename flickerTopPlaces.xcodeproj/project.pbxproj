@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		943F5E60191DCFF0006575F3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943F5E5F191DCFF0006575F3 /* Main_iPad.storyboard */; };
+		943F5E63191DF0A6006575F3 /* NSDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F5E62191DF0A6006575F3 /* NSDefaultHelper.m */; };
+		943F5E66191DF8BA006575F3 /* FavoriteImagesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F5E65191DF8BA006575F3 /* FavoriteImagesTVC.m */; };
+		9453FA14191E066100618894 /* GeneralHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9453FA13191E066100618894 /* GeneralHelper.m */; };
 		9469F3F0191C89E200AFE0EF /* PlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469F3EF191C89E200AFE0EF /* PlacesTVC.m */; };
 		9469F3F3191C89FD00AFE0EF /* TopPlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469F3F2191C89FD00AFE0EF /* TopPlacesTVC.m */; };
 		94A7D29E191C7645007B7F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7D29D191C7645007B7F91 /* Foundation.framework */; };
@@ -42,6 +45,12 @@
 
 /* Begin PBXFileReference section */
 		943F5E5F191DCFF0006575F3 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		943F5E61191DF0A6006575F3 /* NSDefaultHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDefaultHelper.h; sourceTree = "<group>"; };
+		943F5E62191DF0A6006575F3 /* NSDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDefaultHelper.m; sourceTree = "<group>"; };
+		943F5E64191DF8BA006575F3 /* FavoriteImagesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteImagesTVC.h; sourceTree = "<group>"; };
+		943F5E65191DF8BA006575F3 /* FavoriteImagesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteImagesTVC.m; sourceTree = "<group>"; };
+		9453FA12191E066100618894 /* GeneralHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralHelper.h; path = ../GeneralHelper.h; sourceTree = "<group>"; };
+		9453FA13191E066100618894 /* GeneralHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralHelper.m; path = ../GeneralHelper.m; sourceTree = "<group>"; };
 		9469F3EE191C89E200AFE0EF /* PlacesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTVC.h; sourceTree = "<group>"; };
 		9469F3EF191C89E200AFE0EF /* PlacesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTVC.m; sourceTree = "<group>"; };
 		9469F3F1191C89FD00AFE0EF /* TopPlacesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlacesTVC.h; sourceTree = "<group>"; };
@@ -100,6 +109,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9453FA11191E064300618894 /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				9453FA12191E066100618894 /* GeneralHelper.h */,
+				9453FA13191E066100618894 /* GeneralHelper.m */,
+				943F5E61191DF0A6006575F3 /* NSDefaultHelper.h */,
+				943F5E62191DF0A6006575F3 /* NSDefaultHelper.m */,
+			);
+			name = HelperFunctions;
+			sourceTree = "<group>";
+		};
 		94A7D291191C7645007B7F91 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +153,7 @@
 		94A7D2A3191C7645007B7F91 /* flickerTopPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				9453FA11191E064300618894 /* HelperFunctions */,
 				94A7D2F8191C81C5007B7F91 /* Controller */,
 				94A7D2F9191C81DC007B7F91 /* View */,
 				94A7D2F0191C8076007B7F91 /* Flickr Fetcher */,
@@ -198,6 +219,8 @@
 				94A7D2ED191C7F8A007B7F91 /* TopPlacesFlickrPhotosTVC.m */,
 				94DABC85191CD719002EDB7F /* RecentlyViewedTVC.h */,
 				94DABC86191CD719002EDB7F /* RecentlyViewedTVC.m */,
+				943F5E64191DF8BA006575F3 /* FavoriteImagesTVC.h */,
+				943F5E65191DF8BA006575F3 /* FavoriteImagesTVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,10 +337,13 @@
 				9469F3F3191C89FD00AFE0EF /* TopPlacesTVC.m in Sources */,
 				94A7D2F7191C80E1007B7F91 /* FlickrPhotosTVC.m in Sources */,
 				9469F3F0191C89E200AFE0EF /* PlacesTVC.m in Sources */,
+				943F5E63191DF0A6006575F3 /* NSDefaultHelper.m in Sources */,
 				94A7D2EE191C7F8A007B7F91 /* ImageViewController.m in Sources */,
 				94A7D2E9191C7F5A007B7F91 /* AppDelegate.m in Sources */,
 				94A7D2F4191C8076007B7F91 /* FlickrFetcher.m in Sources */,
+				9453FA14191E066100618894 /* GeneralHelper.m in Sources */,
 				94A7D2AA191C7646007B7F91 /* main.m in Sources */,
+				943F5E66191DF8BA006575F3 /* FavoriteImagesTVC.m in Sources */,
 				94DABC87191CD719002EDB7F /* RecentlyViewedTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
