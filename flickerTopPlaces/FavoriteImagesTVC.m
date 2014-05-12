@@ -13,7 +13,6 @@
 #import "GeneralHelper.h"
 
 @interface FavoriteImagesTVC ()
-
 @end
 
 @implementation FavoriteImagesTVC
@@ -44,6 +43,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Favorite Photo Cell" forIndexPath:indexPath];
+    // update number and position info
 
     // Configure the cell...
     cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
@@ -71,7 +71,7 @@
     
     cell.textLabel.text = labels[INDEX_OF_TITLE];
     cell.detailTextLabel.text = labels[INDEX_OF_DESCRIPTION];
-
+    
     return cell;
 }
 
@@ -94,6 +94,7 @@
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
     ivc.photo = photo;
     
+    [NSDefaultHelper saveImageViewingHistory:photo];
     NSArray *cellTitle = [GeneralHelper GetCellLabel:photo];
     ivc.title = cellTitle[INDEX_OF_TITLE];
 }

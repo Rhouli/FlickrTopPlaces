@@ -81,7 +81,6 @@
         [newStrings addObject:@""];
     }
     
-    NSLog(@"%@", newStrings);
     return (NSArray *)newStrings;
 }
 

@@ -11,16 +11,26 @@
 
 @interface TopPlacesTVC ()
 @property (strong, nonatomic) NSArray* places;
+@property UIActivityIndicatorView* spinner;
 @end
 
 @implementation TopPlacesTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchTopPlaces];
+    
+    self.spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(150, 200, 30, 30)];
+    [self.spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.spinner setColor:[UIColor blueColor]];
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
+    
+    [self performSelector:@selector(fetchTopPlaces) withObject:self.spinner afterDelay:0.4];
+
+    [super viewDidLoad];
 }
 
-- (void) loadTopPlaces:(void (^)(NSArray *placesList, NSError *errror))completion {
+- (void) fetchTopPlaces {
     NSURL *url = [FlickrFetcher URLforTopPlaces];
     if (url){
         // NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -35,58 +45,41 @@
                                                                      JSONObjectWithData:[NSData dataWithContentsOfURL:location]
                                                                      options:0
                                                                      error:NULL] valueForKeyPath:FLICKR_RESULTS_PLACES];
-                                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                                     completion(places,error);
-                                                 });
                                                  
+                                                 NSMutableDictionary *placesDict = [[NSMutableDictionary alloc] init];
+                                                 
+                                                 NSMutableOrderedSet *countries = [[NSMutableOrderedSet alloc] init];
+                                                 for(NSDictionary *place in places)
+                                                     [countries addObject:[FlickrFetcher extractCountryNameFromPlaceInformation:place]];
+                                                 
+                                                 for(NSString* country in countries)
+                                                     [placesDict setObject:[NSMutableArray array] forKey:country];
+                                                 
+                                                 for(NSDictionary *place in places)
+                                                     [[placesDict objectForKey:[FlickrFetcher extractCountryNameFromPlaceInformation:place]] addObject:place];
+                                                 
+                                                 // sort the dictonary in alphabetical order (keys and objects)
+                                                 NSMutableDictionary *placesDictSorted = [[NSMutableDictionary alloc] init];
+                                                 NSArray *sortedKeys = [[placesDict allKeys] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
+                                                 
+                                                 for(NSString *key in sortedKeys){
+                                                     NSArray* tmp = [placesDict objectForKey:key];
+                                                     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:FLICKR_PLACE_NAME
+                                                                                                                ascending:YES];
+                                                     NSArray *sortedArray = [tmp sortedArrayUsingDescriptors:
+                                                                             [NSArray arrayWithObject:descriptor]];
+                                                     
+                                                     [placesDictSorted setObject:sortedArray forKey:key];
+                                                 }
+
+                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                     self.sectionTitles = sortedKeys;
+                                                     self.placesDict = placesDictSorted;
+                                                 });
                                              }
                                          }];
         [task resume];
+        [self.spinner stopAnimating];
     }
 }
-- (void)fetchTopPlaces {
-    
-    // Build a dictonary linking all countries and states/ regions in the country
-     NSURL *url = [FlickrFetcher URLforTopPlaces];
-     #warning Blocks Main Thread
-     NSData *jsonResults = [NSData dataWithContentsOfURL:url];
-     
-     NSDictionary *propertyListResults = [NSJSONSerialization
-     JSONObjectWithData:jsonResults
-     options:0
-     error:NULL];
-     
-     NSArray *places = [propertyListResults valueForKeyPath:FLICKR_RESULTS_PLACES];
-
-
-    NSMutableDictionary *placesDict = [[NSMutableDictionary alloc] init];
-    
-    NSMutableOrderedSet *countries = [[NSMutableOrderedSet alloc] init];
-    for(NSDictionary *place in places)
-        [countries addObject:[FlickrFetcher extractCountryNameFromPlaceInformation:place]];
-    
-    for(NSString* country in countries)
-        [placesDict setObject:[NSMutableArray array] forKey:country];
-
-    for(NSDictionary *place in places)
-        [[placesDict objectForKey:[FlickrFetcher extractCountryNameFromPlaceInformation:place]] addObject:place];
-    
-   // sort the dictonary in alphabetical order (keys and objects)
-    NSMutableDictionary *placesDictSorted = [[NSMutableDictionary alloc] init];
-    NSArray *sortedKeys = [[placesDict allKeys] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
-    
-    for(NSString *key in sortedKeys){
-        NSArray* tmp = [placesDict objectForKey:key];
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:FLICKR_PLACE_NAME
-                                                                   ascending:YES];
-        NSArray *sortedArray = [tmp sortedArrayUsingDescriptors:
-                                [NSArray arrayWithObject:descriptor]];
-        
-        [placesDictSorted setObject:sortedArray forKey:key];
-    }
-    
-    self.sectionTitles = sortedKeys;
-    self.placesDict = placesDictSorted;
-}
-
 @end

@@ -15,6 +15,9 @@
 
     if([userDefaults objectForKey:NS_USR_DEFAULTS_RECENT_KEY])
         array = [NSMutableArray arrayWithArray:[userDefaults objectForKey:NS_USR_DEFAULTS_RECENT_KEY]];
+    
+
+    [array removeObject:photo];
     [array insertObject:photo atIndex:0];
 
     if([array count] > MAX_RECENT_HISTORY)

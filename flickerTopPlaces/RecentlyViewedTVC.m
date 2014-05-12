@@ -73,7 +73,7 @@
                     toDisplayPhoto:(NSDictionary *)photo {
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
     ivc.photo = photo;
-
+    
     NSArray *cellTitle = [GeneralHelper GetCellLabel:photo];
     ivc.title = cellTitle[INDEX_OF_TITLE];}
 

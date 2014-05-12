@@ -69,6 +69,8 @@
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
     ivc.photo = photo;
 
+    [NSDefaultHelper saveImageViewingHistory:photo];
+
     NSArray *cellTitle = [GeneralHelper GetCellLabel:photo];
     ivc.title = cellTitle[INDEX_OF_TITLE];
 }
@@ -81,7 +83,6 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Display Photo"]) {
-                [NSDefaultHelper saveImageViewingHistory:self.photos[indexPath.row]];
                 if ([segue.destinationViewController isKindOfClass:[ImageViewController class]]) {
                     [self prepareImageViewController:segue.destinationViewController
                                       toDisplayPhoto:self.photos[indexPath.row]

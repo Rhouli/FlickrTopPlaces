@@ -32,20 +32,18 @@ TIME_VARIABLES
 }
 
 - (void)viewDidLoad {
-    TIME_START
     [super viewDidLoad];
     [self.scrollView addSubview:self.imageView];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    TIME_END
+    TIME_END    // end time for iphone
 }
 #pragma mark - Properties
 
 // lazy instantiation
 
-- (UIImageView *)imageView
-{
+- (UIImageView *)imageView {
     if (!_imageView) _imageView = [[UIImageView alloc] init];
     return _imageView;
 }
@@ -68,6 +66,12 @@ TIME_VARIABLES
     self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
 
     [self.spinner stopAnimating];
+    
+    if (image){
+        TIME_START;
+    } else if (!image && self.startTime != 0){
+        TIME_END;   // end time for ipad
+    }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {

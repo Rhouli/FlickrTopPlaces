@@ -64,8 +64,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-zX-yRe">
-                                <rect key="frame" x="-5" y="6" width="320" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-zX-yRe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -82,12 +82,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="kdR-6r-V2x" secondAttribute="centerY" id="HQR-6r-lK8"/>
-                            <constraint firstAttribute="centerX" secondItem="kdR-6r-V2x" secondAttribute="centerX" id="MOb-d7-BtP"/>
-                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="top" secondItem="nfW-Ko-lbW" secondAttribute="top" id="RH7-DW-efM"/>
-                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="leading" secondItem="nfW-Ko-lbW" secondAttribute="leading" id="YzX-GO-C8J"/>
-                            <constraint firstAttribute="trailing" secondItem="jQ9-zX-yRe" secondAttribute="trailing" id="oeU-7p-sMc"/>
-                            <constraint firstAttribute="bottom" secondItem="jQ9-zX-yRe" secondAttribute="bottom" id="v6s-tT-y4s"/>
+                            <constraint firstAttribute="bottom" secondItem="jQ9-zX-yRe" secondAttribute="bottom" id="0yW-8p-4GD"/>
+                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="centerY" secondItem="kdR-6r-V2x" secondAttribute="centerY" id="5iE-BM-yhq"/>
+                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="centerX" secondItem="kdR-6r-V2x" secondAttribute="centerX" id="9mT-gw-YP7"/>
+                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="top" secondItem="nfW-Ko-lbW" secondAttribute="top" id="c4R-vl-wC7"/>
+                            <constraint firstItem="jQ9-zX-yRe" firstAttribute="leading" secondItem="nfW-Ko-lbW" secondAttribute="leading" id="d2k-IU-5ao"/>
+                            <constraint firstAttribute="trailing" secondItem="jQ9-zX-yRe" secondAttribute="trailing" id="yg1-6m-xXq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z3m-6w-VWb"/>
@@ -108,7 +108,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1321" y="516"/>
+            <point key="canvasLocation" x="-1315" y="510"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ExV-OG-Sgz">
@@ -331,6 +331,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ccs-hu-AHZ"/>
+        <segue reference="xAN-Zk-bVj"/>
     </inferredMetricsTieBreakers>
 </document>
