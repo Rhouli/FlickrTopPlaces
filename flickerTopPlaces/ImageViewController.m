@@ -1,9 +1,9 @@
 //
 //  ImageViewController.m
-//  Imaginarium
+//  flickerTopPlaces
 //
-//  Created by Ryan Houlihan.
-//  Copyright (c) 2013 Stanford University. All rights reserved.
+//  Created by Ryan on 5/8/14.
+//  Copyright (c) 2014 Ryan Houlihan. All rights reserved.
 //
 
 #import "ImageViewController.h"

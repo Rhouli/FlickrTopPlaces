@@ -1,9 +1,9 @@
 //
 //  FlickrPhotosTVC.h
-//  Shutterbug
+//  flickerTopPlaces
 //
-//  Created by CS193p Instructor on 5/2/14.
-//  Copyright (c) 2014 Stanford University. All rights reserved.
+//  Created by Ryan on 5/8/14.
+//  Copyright (c) 2014 Ryan Houlihan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
