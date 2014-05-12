@@ -51,7 +51,7 @@
     }
     
     // if the image viewing time is long enough add to favorites list
-    for(int i = [array count]-1; i >= 0; i--){
+    for(int i = (int)[array count]-1; i >= 0; i--){
         NSArray *tmp = (NSArray *) array[i];
         NSNumber *num = [NSNumber numberWithFloat:[tmp[TIME_INDEX] floatValue]];
         

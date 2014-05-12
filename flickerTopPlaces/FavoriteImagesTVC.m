@@ -85,6 +85,8 @@
     if ([detailVC isKindOfClass:[ImageViewController class]]) {
         [self prepareImageViewController:detailVC toDisplayPhoto:self.photos[indexPath.row]];
     }
+    [self extractPhotosAndTimes];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation
