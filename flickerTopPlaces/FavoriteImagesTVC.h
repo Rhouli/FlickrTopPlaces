@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlickrPhotosTVC.h"
 
-@interface FavoriteImagesTVC : UITableViewController
-@property (strong, nonatomic) NSArray* photos;
+@interface FavoriteImagesTVC : FlickrPhotosTVC
 @property (strong, nonatomic) NSArray* times;
 @end

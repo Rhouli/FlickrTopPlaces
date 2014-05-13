@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlickrPhotosTVC.h"
 
-@interface RecentlyViewedTVC : UITableViewController
-@property (strong, nonatomic) NSArray* photos; 
+@interface RecentlyViewedTVC : FlickrPhotosTVC
 @end
